@@ -1,0 +1,12 @@
+<doctrine-mapping>
+    <entity name="CompanyTools\Domain\Document\Bill" table="bill">
+        <id name="referenceValue" type="string">
+            <generator strategy="NONE" />
+        </id>
+        <field name="companyName" type="string" />
+        <field name="dayValue" type="datetime" />
+        <field name="vatAmount" type="float" />
+        <field name="totalAmount" type="float" />
+        <field name="quarterValue" type="datetime" />
+    </entity>
+</doctrine-mapping>

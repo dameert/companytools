@@ -1,0 +1,20 @@
+<html>
+<body>
+{% block body %}
+    <ul>
+        <li>
+            <a href="{{ path('dashboard') }}">Dashboard</a>
+        </li>
+        <li>
+            <a href="{{ path('documents_upload') }}">Upload</a>
+        </li>
+        <li>
+            <a href="{{ path('documents') }}">Documents</a>
+        </li>
+        <li>
+            <a href="{{ path('documents_document', {'document' : 'test'}) }}">Document</a>
+        </li>
+    </ul>
+{% endblock %}
+</body>
+</html>
