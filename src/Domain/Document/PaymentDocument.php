@@ -11,32 +11,32 @@ use CompanyTools\Domain\Generic\ValueObject\DateTime\QuarterValue;
 class PaymentDocument
 {
     /**
-     * @var string
+     * @var ReferenceValue
      */
     protected $referenceValue;
 
     /**
-     * @var string
+     * @var CompanyName
      */
     protected $companyName;
 
     /**
-     * @var \DateTime
+     * @var DayValue
      */
     protected $dayValue;
 
     /**
-     * @var float
+     * @var Amount
      */
     protected $vatAmount;
 
     /**
-     * @var float
+     * @var Amount
      */
     protected $totalAmount;
 
     /**
-     * @var array
+     * @var QuarterValue
      */
     protected $quarterValue;
 
@@ -49,41 +49,41 @@ class PaymentDocument
         QuarterValue $quarterValue
     )
     {
-        $this->referenceValue = $referenceValue->getValue();
-        $this->companyName = $companyName->getValue();
-        $this->dayValue = $dayValue->getValue();
-        $this->vatAmount = $vatAmount->getValue();
-        $this->totalAmount = $totalAmount->getValue();
-        $this->quarterValue = $quarterValue->getValue()->getValue();
+        $this->referenceValue = $referenceValue;
+        $this->companyName = $companyName;
+        $this->dayValue = $dayValue;
+        $this->vatAmount = $vatAmount;
+        $this->totalAmount = $totalAmount;
+        $this->quarterValue = $quarterValue;
     }
 
     public function getReferenceValue(): ReferenceValue
     {
-        return new ReferenceValue($this->referenceValue);
+        return $this->referenceValue;
     }
 
     public function getCompanyName(): CompanyName
     {
-        return new CompanyName($this->companyName);
+        return $this->companyName;
     }
 
     public function getDayValue(): DayValue
     {
-        return new DayValue($this->dayValue);
+        return $this->dayValue;
     }
 
     public function getVatAmount(): Amount
     {
-        return new Amount($this->vatAmount);
+        return $this->vatAmount;
     }
 
     public function getTotalAmount(): Amount
     {
-        return new Amount($this->totalAmount);
+        return $this->totalAmount;
     }
 
     public function getQuarterValue(): QuarterValue
     {
-        return QuarterValue::fromDayValue(new DayValue($this->quarterValue));
+        return $this->quarterValue;
     }
 }
