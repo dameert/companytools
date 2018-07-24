@@ -1,12 +1,19 @@
-<doctrine-mapping>
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping
+    xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://doctrine-project.org/schemas/orm/doctrine-mapping
+    https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
     <entity name="CompanyTools\Domain\Document\Bill" table="bill">
         <id name="referenceValue" type="string">
             <generator strategy="NONE" />
         </id>
-        <field name="companyName" type="string" />
-        <field name="dayValue" type="datetime" />
-        <field name="vatAmount" type="float" />
-        <field name="totalAmount" type="float" />
-        <field name="quarterValue" type="datetime" />
+        <embedded name="companyName" class="CompanyTools\Domain\Company\CompanyName" />
+        <embedded name="dayValue" class="CompanyTools\Domain\Generic\ValueObject\DateTime\DayValue" />
+        <embedded name="vatAmount" class="CompanyTools\Domain\Document\Amount" />
+        <embedded name="totalAmount" class="CompanyTools\Domain\Document\Amount" />
+        <embedded name="quarterValue" class="CompanyTools\Domain\Generic\ValueObject\DateTime\QuarterValue" />
     </entity>
 </doctrine-mapping>

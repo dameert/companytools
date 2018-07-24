@@ -9,7 +9,7 @@ class FloatValue
     /**
      * @var float
      */
-    private $value;
+    protected $value;
 
     public function __construct(float $float = null)
     {

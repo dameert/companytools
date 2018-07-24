@@ -9,7 +9,7 @@ class DayValue
     /**
      * @var \DateTime
      */
-    private $value;
+    protected $value;
 
     public function __construct(\DateTime $value)
     {

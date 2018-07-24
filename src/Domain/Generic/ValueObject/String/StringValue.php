@@ -9,7 +9,7 @@ class StringValue
     /**
      * @var string
      */
-    private $value;
+    protected $value;
 
     public function __construct(string $string = null)
     {

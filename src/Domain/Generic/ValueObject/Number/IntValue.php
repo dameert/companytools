@@ -9,7 +9,7 @@ class IntValue
     /**
      * @var int
      */
-    private $value;
+    protected $value;
 
     public function __construct(int $int = null)
     {
