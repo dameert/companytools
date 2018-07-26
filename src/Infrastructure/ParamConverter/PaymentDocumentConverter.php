@@ -60,25 +60,22 @@ class PaymentDocumentConverter implements ParamConverterInterface
         try {
             $reference = $this->documentService->createReferenceValue($value);
             $document = $this->getRepositoryForClass($class)->findByReference($reference);
-
-            $request->attributes->set($name, $document);
-            return true;
         } catch (\Throwable $throwable) {
             throw new NotFoundHttpException();
         }
+
+        $request->attributes->set($name, $document);
+        return true;
     }
 
     private function getRepositoryForClass(string $class)
     {
-        if ($class === Bill::class) {
-            return $this->billRepository;
+        switch ($class) {
+            case Bill::class:
+                return $this->billRepository;
+            default:
+                return $this->invoiceRepository;
         }
-
-        if ($class === Invoice::class) {
-            return $this->invoiceRepository;
-        }
-
-        return new \Exception(sprintf('Provided class %s should not pass the supports method', $class));
     }
 
     /**
@@ -90,12 +87,12 @@ class PaymentDocumentConverter implements ParamConverterInterface
      */
     public function supports(ParamConverter $configuration)
     {
-        $class = $configuration->getClass();
-
-        if ($class !== Bill::class && $class !== Invoice::class) {
-            return false;
+        switch ($configuration->getClass()) {
+            case Bill::class:
+            case Invoice::class:
+                return true;
+            default:
+                return false;
         }
-
-        return true;
     }
 }

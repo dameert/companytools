@@ -12,7 +12,10 @@
             <a href="{{ path('documents') }}">Documents</a>
         </li>
         <li>
-            <a href="{{ path('documents_document', {'id' : 'test'}) }}">Document</a>
+            <a href="{{ path('documents_bill', {'document' : 'test'}) }}">Document</a>
+        </li>
+        <li>
+            <a href="{{ path('documents_invoice', {'document' : 'test'}) }}">Document</a>
         </li>
     </ul>
 {% endblock %}
