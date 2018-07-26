@@ -30,7 +30,7 @@ class DocumentsController extends Controller
     }
 
     /**
-     * @Route("/{document}", name="documents_document")
+     * @Route("/{id}", name="documents_document")
      */
     public function document(PaymentDocument $document)
     {

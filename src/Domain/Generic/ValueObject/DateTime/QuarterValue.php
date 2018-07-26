@@ -25,12 +25,12 @@ class QuarterValue
     {
         $this->yearValue = $yearValue;
         $this->monthValue = $monthValue;
-        $this->quarter = ceil($monthValue->getValue() / 3);
+        $this->quarter = (int) ceil($monthValue->getValue() / 3);
     }
 
-    public static function fromDayValue(DayValue $day)
+    public static function fromDateTime(\DateTime $dateTime): QuarterValue
     {
-        return new self($day->getYearValue(), $day->getMonthValue());
+        return new self(YearValue::fromDateTime($dateTime), MonthValue::fromDateTime($dateTime));
     }
 
     public function getYearValue(): YearValue
@@ -48,14 +48,9 @@ class QuarterValue
         return $this->quarter;
     }
 
-    public function getValue(): DayValue
-    {
-        return DayValue::fromQuarterValue($this);
-    }
-
     public function __toString(): string
     {
-        return $this->getYearValue() . ' Q' . $this->value;
+        return $this->getYearValue() . ' Q' . $this->quarter;
     }
 
 }

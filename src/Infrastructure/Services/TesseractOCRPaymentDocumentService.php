@@ -14,8 +14,8 @@ class TesseractOCRPaymentDocumentService extends PaymentDocumentService
     protected function documentFromFile(FilePathValue $filePathValue): PaymentDocument
     {
         // TODO: Implement documentFromFile() method.
-        $referenceValue = "";
-        $companyName = "";
+        $referenceValue = "reference";
+        $companyName = "company";
         $dayValue = new \DateTime('now');
         $vatAmout = 0.00;
         $totalAmount = 0.00;

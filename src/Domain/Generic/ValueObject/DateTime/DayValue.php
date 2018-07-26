@@ -23,7 +23,7 @@ class DayValue
 
     public static function fromQuarterValue(QuarterValue $quarterValue): DayValue
     {
-        $day = '1/'.$quarterValue->getMonthValue().'/'.$quarterValue->getYearValue();
+        $day = '1-'.$quarterValue->getMonthValue().'-'.$quarterValue->getYearValue();
         return new self(new \DateTime($day));
     }
 

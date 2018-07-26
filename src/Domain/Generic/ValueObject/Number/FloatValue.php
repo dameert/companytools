@@ -23,6 +23,6 @@ class FloatValue
 
     public function __toString(): string
     {
-        return (string) $this->value;
+        return number_format($this->value, 2);
     }
 }

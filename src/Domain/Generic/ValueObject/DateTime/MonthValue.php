@@ -13,10 +13,15 @@ class MonthValue
 
     public function __construct(int $month)
     {
-        if ($month < 1 && $month > 12) {
+        if ($month < 1 || $month > 12) {
             throw new MonthException();
         }
         $this->value = $month;
+    }
+
+    public static function fromDateTime(\DateTime $dateTime): MonthValue
+    {
+        return new self((int) $dateTime->format('n'));
     }
 
     /**
