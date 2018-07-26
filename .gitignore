@@ -2,6 +2,10 @@
 /.idea
 ###< IDE ###
 
+###> PHPUnit ###
+/coverage
+###< PHPUnit ###
+
 ###> symfony/framework-bundle ###
 /.env
 /public/bundles/
