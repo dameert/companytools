@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace CompanyTools\Infrastructure\Controller;
 
-use CompanyTools\Domain\Document\PaymentDocument;
+use CompanyTools\Domain\Document\Bill;
+use CompanyTools\Domain\Document\Invoice;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * @Route("/documents")
  */
-class DocumentsController extends Controller
+class DocumentsController extends AbstractController
 {
     /**
      * @Route("/", name="documents")
@@ -30,9 +31,17 @@ class DocumentsController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="documents_document")
+     * @Route("/bill/{document}", name="documents_bill")
      */
-    public function document(PaymentDocument $document)
+    public function bill(Bill $document)
+    {
+        return $this->render('documents/document.html.twig', ['document' => $document]);
+    }
+
+    /**
+     * @Route("/invoice/{document}", name="documents_invoice")
+     */
+    public function invoice(Invoice $document)
     {
         return $this->render('documents/document.html.twig', ['document' => $document]);
     }

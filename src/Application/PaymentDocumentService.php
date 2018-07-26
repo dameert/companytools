@@ -30,6 +30,11 @@ abstract class PaymentDocumentService
         return Bill::fromPaymentDocument($paymentDocument);
     }
 
+    public function createReferenceValue(string $value): ReferenceValue
+    {
+        return new ReferenceValue($value);
+    }
+
     protected function createPaymentDocument(
         string $referenceValue,
         string $companyName,

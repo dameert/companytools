@@ -8,6 +8,7 @@ use CompanyTools\Application\PaymentDocumentService;
 use CompanyTools\Domain\Document\Bill;
 use CompanyTools\Domain\Document\Invoice;
 use CompanyTools\Domain\Document\PaymentDocument;
+use CompanyTools\Domain\Document\ReferenceValue;
 use CompanyTools\Domain\Generic\ValueObject\File\FilePathValue;
 use PHPUnit\Framework\TestCase;
 
@@ -22,6 +23,13 @@ class PaymentDocumentServiceTest extends TestCase
         $this->pd = $this->createMock(PaymentDocument::class);
         $this->pds = $this->createMock(PaymentDocumentService::class);
         $this->pds->method('documentFromFile')->willReturn($this->pd);
+    }
+
+    public function testCreateReferenceValue()
+    {
+        $rv = $this->pds->createReferenceValue('CompanyTools');
+
+        $this->assertInstanceOf(ReferenceValue::class, $rv);
     }
 
     public function testInvoiceFromFile()

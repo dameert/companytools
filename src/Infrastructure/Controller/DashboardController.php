@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace CompanyTools\Infrastructure\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class DashboardController extends Controller
+class DashboardController extends AbstractController
 {
     /**
      * @Route("/", name="dashboard")
