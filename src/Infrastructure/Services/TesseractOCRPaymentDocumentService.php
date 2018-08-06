@@ -19,7 +19,7 @@ class TesseractOCRPaymentDocumentService extends PaymentDocumentService
         $dayValue = new \DateTime('now');
         $vatAmout = 0.00;
         $totalAmount = 0.00;
-        $year= 1;
+        $year= 2018;
         $month = 1;
 
         return $this->createPaymentDocument(

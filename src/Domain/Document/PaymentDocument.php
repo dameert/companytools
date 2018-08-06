@@ -11,7 +11,7 @@ use CompanyTools\Domain\Generic\ValueObject\DateTime\QuarterValue;
 class PaymentDocument
 {
     /**
-     * @var ReferenceValue
+     * @var string
      */
     protected $referenceValue;
 
@@ -49,7 +49,7 @@ class PaymentDocument
         QuarterValue $quarterValue
     )
     {
-        $this->referenceValue = $referenceValue;
+        $this->referenceValue = $referenceValue->getValue();
         $this->companyName = $companyName;
         $this->dayValue = $dayValue;
         $this->vatAmount = $vatAmount;
@@ -59,7 +59,7 @@ class PaymentDocument
 
     public function getReferenceValue(): ReferenceValue
     {
-        return $this->referenceValue;
+        return new ReferenceValue($this->referenceValue);
     }
 
     public function getCompanyName(): CompanyName

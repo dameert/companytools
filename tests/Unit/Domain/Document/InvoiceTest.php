@@ -18,6 +18,7 @@ class InvoiceTest extends TestCase
     public function testFromPaymentDocument()
     {
         $rf = $this->createMock(ReferenceValue::class);
+        $rf->expects(self::exactly(2))->method('getValue')->willReturn('aValue');
         $cn = $this->createMock(CompanyName::class);
         $dv = $this->createMock(DayValue::class);
         $va = $this->createMock(Amount::class);
@@ -34,7 +35,7 @@ class InvoiceTest extends TestCase
 
         $i = Invoice::fromPaymentDocument($pd);
 
-        $this->assertSame($rf, $i->getReferenceValue());
+        $this->assertSame($rf->getValue(), $i->getReferenceValue()->getValue());
         $this->assertSame($cn, $i->getCompanyName());
         $this->assertSame($dv, $i->getDayValue());
         $this->assertSame($va, $i->getVatAmount());

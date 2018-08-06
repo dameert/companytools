@@ -9,6 +9,7 @@
         "ramsey/uuid": "^3.7",
         "sensio/framework-extra-bundle": "^5.2",
         "symfony/console": "^4.1",
+        "symfony/debug": "^4.1",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.1",
         "symfony/lts": "^4@dev",
@@ -19,9 +20,12 @@
         "twig/twig": "^2.5"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
         "symfony/dotenv": "^4.1",
         "symfony/maker-bundle": "^1.5",
+        "symfony/profiler-pack": "^1.0",
         "symfony/test-pack": "^1.0",
+        "symfony/var-dumper": "^4.1",
         "symfony/web-server-bundle": "^4.1"
     },
     "config": {

@@ -47,7 +47,7 @@ class DoctrineBillRepository implements BillRepository
 
     public function findByReference(ReferenceValue $reference): Bill
     {
-        if (null === $document = $this->repository->findOneBy(['referenceValue' => $reference->getValue()])) {
+        if (null === $document = $this->repository->findOneByReferenceValue($reference->getValue())) {
             throw new EntityNotFoundException($reference->getValue());
         }
 

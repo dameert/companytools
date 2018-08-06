@@ -47,7 +47,7 @@ class DoctrineInvoiceRepository implements InvoiceRepository
 
     public function findByReference(ReferenceValue $reference): Invoice
     {
-        if (null === $document = $this->repository->findOneBy(['referenceValue' => $reference->getValue()])) {
+        if (null === $document = $this->repository->findOneByReferenceValue($reference->getValue())) {
             throw new EntityNotFoundException($reference->getValue());
         }
 
